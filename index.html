@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Флотилия</title>
+
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+
+<style>
+  html, body { height:100%; margin:0; }
+  #panorama { width:100%; height:100%; }
+</style>
+</head>
+
+<body>
+<div id="panorama"></div>
+
+<script>
+const scenes = {
+  "scene-1": {
+    title: "Санузел",
+    type: "equirectangular",
+    panorama: "panorama1.jpg",
+    autoLoad: true,
+    hotSpots: [
+      { pitch: 0, yaw: -100, type: "info", text: "Зона кухни", sceneId: "scene-2" }
+    ]
+  },
+  "scene-2": {
+    title: "Зона кухни",
+    type: "equirectangular",
+    panorama: "Кухня.jpg",
+    autoLoad: false,
+    hotSpots: [
+      { pitch: 0, yaw: -85, type: "info", text: "Санузел", sceneId: "scene-1" },
+      { pitch: 0, yaw: -10, type: "info", text: "Зона спальни", sceneId: "scene-3" }
+    ]
+  },
+"scene-3": {
+    title: "Зона спальни",
+    type: "equirectangular",
+    panorama: "Спальня.jpg",
+    autoLoad: false,
+    hotSpots: [
+      { pitch: 0, yaw: 0, type: "info", text: "Зона гостиной", sceneId: "scene-4" }, 
+      { pitch: 0, yaw: 170, type: "info", text: "Зона кухни", sceneId: "scene-2" }
+    ]
+  },
+"scene-4": {
+    title: "Зона гостиной",
+    type: "equirectangular",
+    panorama: "Гостиная.jpg",
+    autoLoad: false,
+    hotSpots: [
+      { pitch: 0, yaw: 135, type: "info", text: "Зона спальни", sceneId: "scene-3" }
+    ]
+  }
+};
+
+const viewer = pannellum.viewer('panorama', {
+  default: { firstScene: 'scene-1' },
+  scenes
+});
+
+viewer.on('hotSpotClick', function (e, id, args) {
+  if (args && args.sceneId) viewer.loadScene(args.sceneId);
+});
+</script>
+</body>
+</html>
