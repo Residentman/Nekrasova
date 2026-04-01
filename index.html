@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>Флотилия</title>
+<title>Некрасова</title>
 
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
@@ -19,11 +19,11 @@
 <script>
 const scenes = {
   "scene-1": {
-    title: "Санузел",
+    title: "Гостиная",
     type: "equirectangular",
     panorama: "panorama1.jpg",
     autoLoad: true,
-    hotSpots: [
+    "hotSpots": [
       { pitch: 0, yaw: -100, type: "info", text: "Зона кухни", sceneId: "scene-2" }
     ]
   },
@@ -32,7 +32,7 @@ const scenes = {
     type: "equirectangular",
     panorama: "Кухня.jpg",
     autoLoad: false,
-    hotSpots: [
+    "hotSpots": [
       { pitch: 0, yaw: -85, type: "info", text: "Санузел", sceneId: "scene-1" },
       { pitch: 0, yaw: -10, type: "info", text: "Зона спальни", sceneId: "scene-3" }
     ]
@@ -42,7 +42,7 @@ const scenes = {
     type: "equirectangular",
     panorama: "Спальня.jpg",
     autoLoad: false,
-    hotSpots: [
+    "hotSpots": [
       { pitch: 0, yaw: 0, type: "info", text: "Зона гостиной", sceneId: "scene-4" }, 
       { pitch: 0, yaw: 170, type: "info", text: "Зона кухни", sceneId: "scene-2" }
     ]
@@ -52,7 +52,7 @@ const scenes = {
     type: "equirectangular",
     panorama: "Гостиная.jpg",
     autoLoad: false,
-    hotSpots: [
+    "hotSpots": [
       { pitch: 0, yaw: 135, type: "info", text: "Зона спальни", sceneId: "scene-3" }
     ]
   }
